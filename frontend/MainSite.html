@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Kanban-Board</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <script src="/backend/kanban.js"></script>
+    </head>
+    <body>
+        <table border="1">
+            <tr>
+                <th>ToDo</th>
+                <th>In progress</th>
+                <th>Done</th>
+            </tr>
+            <tr>
+                <td>
+                    <ul id="todoList"></ul>
+                    <button onclick="addTodo()">+</button>
+                </td>
+                <td>
+                    <ul id="inProgressList"></ul>
+                    <button onclick="addInProgress()">+</button>
+                </td>
+                <td>
+                    <ul id="doneList"></ul>
+                    <button onclick="addDone()">+</button>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
