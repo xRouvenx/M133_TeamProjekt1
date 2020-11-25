@@ -6,7 +6,7 @@
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
         <title>Kanban-Board</title>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
-        <script src="/backend/kanban.js"></script>
+        <link rel="stylesheet" href="css/stylesheet.css">
     </head>
     <body>
         <table border="1">
@@ -17,18 +17,29 @@
             </tr>
             <tr>
                 <td>
-                    <ul id="todoList"></ul>
-                    <button onclick="addTodo()">+</button>
+                    <ul id="taskList"></ul>
+                    <button class="btn-add">+</button>
                 </td>
                 <td>
                     <ul id="inProgressList"></ul>
-                    <button onclick="addInProgress()">+</button>
+                    <button class="btn-add">+</button>
                 </td>
                 <td>
                     <ul id="doneList"></ul>
-                    <button onclick="addDone()">+</button>
+                    <button class="btn-add">+</button>
                 </td>
             </tr>
         </table>
+        <div id="addTaskPopup" class="modal">
+            <button id="btn-close">X</button>
+            <form>
+                <h1>Task erstellen</h1>
+                <input type="text" placeholder="Beschreibung"/>
+                <input type="submit" value="Erstellen"/>
+            </form>
+        </div>
+
+        <script src="/backend/kanban.js"></script>
+        <script src="../app.js"></script>
     </body>
 </html>
