@@ -21,6 +21,7 @@ router.post('/addTask', async (context) => {
     task.id = id;
     tasks.push(task);
     id++;
+    // remove next line
     console.log(tasks);
     context.response.status = 201;
 });
