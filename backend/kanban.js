@@ -1,15 +1,41 @@
-function addInProgress() {
-    const list = document.getElementById("inProgressList");
-    const listItem = document.createElement("li");
-    listItem.innerText = "new Item";
+import { Application, Router } from 'https://deno.land/x/oak@v6.3.1/mod.ts';
+import { oakCors } from "https://deno.land/x/cors/mod.ts";
+import { Task } from "./task.js";;
 
-    list.appendChild(listItem);
-}
+const app = new Application();
+const router = new Router();
 
-function addDone() {
-    const list = document.getElementById("doneList");
-    const listItem = document.createElement("li");
-    listItem.innerText = "new Item";
+const tasks = [];
+let id = 1;
 
-    list.appendChild(listItem);
-}
+router.get('/fetchTask', async function (context) {
+    context.response.body = JSON.stringify(tasks);
+    context.response.status = 200;
+});
+
+router.post('/addTask', async (context) => {
+    const body = JSON.parse(await context.request.body().value);
+    const task = new Task();
+    task.name = body.name;
+    task.state = body.state;
+    task.id = id;
+    tasks.push(task);
+    id++;
+    console.log(tasks);
+    context.response.status = 201;
+});
+
+router.put('/moveTask', async (context) => {
+    const body = JSON.parse(await context.request.body().value);
+    const task = tasks.find(function (task) {
+        return task.id == body.id;
+    });
+    task.state = body.state;
+    context.response.status = 200;
+});
+
+app.use(oakCors());
+
+app.use(router.routes());
+
+await app.listen({ port: 8000 });

@@ -9,37 +9,33 @@
         <link rel="stylesheet" href="css/stylesheet.css">
     </head>
     <body id = ".kanban-body">
-        <table border="1">
+        <table>
             <tr>
-                <th id = ".header-todo">ToDo style</th>
-                <th id = ".header-inProgress">In progress</th>
-                <th id = ".header-done">Done</th>
+                <th id="header-todo">ToDo style</th>
+                <th id="header-inProgress">In progress</th>
+                <th id="header-done">Done</th>
             </tr>
             <tr>
-                <td>
-                    <ul id="taskList"></ul>
+                <td id="tableToDo">
                     <button class="btn-add">+</button>
                 </td>
-                <td>
-                    <ul id="inProgressList"></ul>
+                <td id="tableInProgress">
                     <button class="btn-add">+</button>
                 </td>
-                <td>
-                    <ul id="doneList"></ul>
+                <td id="tableDone">
                     <button class="btn-add">+</button>
                 </td>
             </tr>
         </table>
         <div id="addTaskPopup" class="modal">
             <button id="btn-close">X</button>
-            <form>
+            <form id="form">
                 <h1>Task erstellen</h1>
-                <input type="text" placeholder="Beschreibung"/>
-                <input type="submit" value="Erstellen"/>
+                <input type="text" placeholder="Beschreibung" id="taskDescription"/>
+                <input type="button" value="Erstellen" id="addTaskBtn"/>
             </form>
         </div>
 
-        <script src="/backend/kanban.js"></script>
-        <script src="../app.js"></script>
+        <script src="./app.js"></script>
     </body>
 </html>

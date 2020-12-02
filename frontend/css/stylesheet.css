@@ -3,6 +3,23 @@
     margin: 2%;
 }
 
+.modal {
+    display: none;
+}
+
+#form {
+    align-items: center;
+    align-content: center;
+}
+
+#form-item {
+    align-self: center;
+}
+
+body {
+    align-content: center;
+}
+
 h1 {
     text-align: center;
 }
@@ -23,19 +40,19 @@ td {
     text-align: center;
 }
 
-.header-todo {
+#header-todo {
     background-color: orange;
     width: 33%;
     text-align: center;
 }
 
-.header-inProgress {
+#header-inProgress {
     background-color: deepskyblue;
     width: 33%;
     text-align: center;
 }
 
-.header-done {
+#header-done {
     background-color: #47CC8A;
     width: 33%;
     text-align: center;
