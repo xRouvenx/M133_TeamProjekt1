@@ -21,9 +21,17 @@ router.post('/addTask', async (context) => {
     task.id = id;
     tasks.push(task);
     id++;
-    // remove next line
-    console.log(tasks);
     context.response.status = 201;
+});
+
+router.delete('/deleteTask/:id', async (context) => {
+    const task = tasks.find(function (task) {
+        console.log(task.id, context.params.id);
+        return task.id == context.params.id;
+    });
+    const index = tasks.indexOf(task);
+    tasks.splice(index, 1);
+    context.response.status = 200;
 });
 
 router.put('/moveTask', async (context) => {
