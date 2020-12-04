@@ -121,4 +121,42 @@ async function addTask(task) {
     method: "POST",
     body: JSON.stringify(task)
   });
+
+var startingDropzone;
+
+document.addEventListener("dragstart", function (event) {
+    startingDropzone = event.target;
+}, false);
+
+document.addEventListener("dragover", function (event) {
+    event.preventDefault();
+}, false);
+
+function findParentNodeByClass(element, className) {
+    while (element.parentNode) {
+        if (element.className.includes(className)) {
+            return element;
+        }
+        element = element.parentNode;
+    }
+
+    return null;
+}
+
+document.addEventListener("drop", async function (event) {
+    event.preventDefault();
+
+    var dropzone = findParentNodeByClass(event.target, "dropzone");
+
+    if (dropzone != null) {
+        dropzone.style.background = "";
+        startingDropzone.parentNode.removeChild(startingDropzone);
+        dropzone.insertBefore(startingDropzone, dropzone.firstChild);
+        await moveTask({
+            id: dropzone.childNodes[0].childNodes[1].innerHTML,
+            state: dropzone.id
+        });
+    }
+}, false);
+
 }
