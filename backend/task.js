@@ -1,5 +1,5 @@
 export class Task {
     id = null;
-    name = '';
-    state = '';
+    name = "";
+    state = "";
 }

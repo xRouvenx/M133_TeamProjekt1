@@ -19,14 +19,13 @@ router.post('/addTask', async (context) => {
     task.name = body.name;
     task.state = body.state;
     task.id = id;
-    tasks.push(task);
     id++;
+    tasks.push(task);
     context.response.status = 201;
 });
 
 router.delete('/deleteTask/:id', async (context) => {
     const task = tasks.find(function (task) {
-        console.log(task.id, context.params.id);
         return task.id == context.params.id;
     });
     const index = tasks.indexOf(task);

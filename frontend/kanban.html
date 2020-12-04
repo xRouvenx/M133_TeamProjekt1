@@ -1,35 +1,38 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <meta charset='utf-8'>
-        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-        <title>Kanban-Board</title>
-        <meta name='viewport' content='width=device-width, initial-scale=1'>
-        <link rel="stylesheet" href="css/stylesheet.css">
-    </head>
-    <body id = ".kanban-body">
-        <table>
-            <tr>
-                <th id="header-todo">ToDo</th>
-                <th id="header-inProgress">In progress</th>
-                <th id="header-done">Done</th>
-            </tr>
-            <tr>
-                <td id="tableToDo"></td>
-                <td id="tableInProgress"></td>
-                <td id="tableDone"></td>
-            </tr>
-        </table>
-        <div id="addTaskPopup" class="modal">
-            <button id="btn-close">X</button>
-            <form id="form">
-                <h1>Task erstellen</h1>
-                <input type="text" placeholder="Beschreibung" id="taskDescription"/>
-                <input type="button" value="Erstellen" id="addTaskBtn"/>
-            </form>
-        </div>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Kanban-Board</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="css/stylesheet.css">
+</head>
 
-        <script src="./app.js"></script>
-    </body>
+<body id=".kanban-body">
+    <div id="addTaskPopup" class="modal">
+        <button id="btn-close">X</button>
+        <h1>TASK ERSTELLEN</h1>
+        <div class="inner-modal">
+            <input type="text" placeholder="Beschreibung" id="taskDescription" />
+            <button id="addTaskBtn">ERSTELLEN</button>
+        </div>
+    </div>
+
+    <table>
+        <tr>
+            <th id="header-todo">TO-DO</th>
+            <th id="header-inProgress">IN PROGRESS</th>
+            <th id="header-done">DONE</th>
+        </tr>
+        <tr>
+            <td id="tableToDo" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+            <td id="tableInProgress" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+            <td id="tableDone" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+        </tr>
+    </table>
+
+    <script src="./app.js"></script>
+</body>
+
 </html>
