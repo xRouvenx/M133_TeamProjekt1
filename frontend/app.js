@@ -86,7 +86,7 @@ function createAddButtons() {
 
 function buttonClick(button) {
   let addTaskPopup = document.getElementById("addTaskPopup");
-  
+
   button.addEventListener("click", () => {
     addTaskPopup.style.display = "block";
   })
@@ -159,5 +159,19 @@ document.addEventListener("drop", async function (event) {
         });
     }
 }, false);
+
+async function getColumns() {
+  let response = await fetch('http://localhost:8000/columns', {
+      method: 'GET',
+  });
+  return await response.json();
+}
+
+async function getTasks() {
+  let response = await fetch('http://localhost:8000/fetch', {
+      method: 'GET',
+  });
+  return await response.json();
+}
 
 }
