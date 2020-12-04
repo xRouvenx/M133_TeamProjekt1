@@ -32,11 +32,13 @@ table {
 }
 
 th {
+    border: 1px solid black;
     align-content: center;
-    color: rgb(0, 0, 0);
+    color: black;
 }
 
 td {
+    border: 1px solid black;
     text-align: center;
 }
 
@@ -72,7 +74,10 @@ td {
     border: none;
 }
 
-#btn-add{
-    float: right;
-    margin-left: 20px;
+.btn-add{
+    border-radius: 5px;
+}
+
+input{
+    border-radius: 5px;
 }
